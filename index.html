@@ -199,7 +199,7 @@
   <div class="wrap">
     <span class="eyebrow reveal in"><span class="dot"></span> Asistente clínico para psicólogos/as en consultorio privado</span>
     <h1 class="reveal in">Tus sesiones, en tu computadora.<br>Nunca en la <em>nube</em>.</h1>
-    <p class="hero-sub reveal in">Psynote transcribe, anonimiza y genera automáticamente el resumen clínico y el material de supervisión — todo procesado localmente, total confidencialidad.</p>
+    <p class="hero-sub reveal in">Psynote es un generador de documentos clínicos que graba, transcribe, anonimiza y luego genera automáticamente el resumen clínico y el material de supervisión — todo procesado localmente, con total confidencialidad.</p>
     <div class="hero-cta reveal in">
       <a href="#precios" class="btn-primary">Probar 7 días gratis →</a>
       <a href="#como-funciona" class="btn-ghost">Ver cómo funciona</a>
@@ -326,13 +326,21 @@
       <div class="step">
         <div class="step-num">04</div>
         <div class="step-body">
-          <h3>Generación y exportación</h3>
-          <p>Se reciben el resumen para historial y el material de supervisión, listos en Word, PDF o TXT, guardados en la computadora.</p>
-          <span class="step-chip">resumen.docx · supervision.docx</span>
+          <h3>Continuidad entre sesiones</h3>
+          <p>Antes de generar el resumen y la supervisión, Psynote revisa las dos sesiones anteriores del mismo consultante. Así cada documento no queda aislado: describe también la evolución del proceso terapéutico, marcando qué cambió, qué se retoma y qué continúa en desarrollo.</p>
+          <span class="step-chip">últimas 2 sesiones · evolución del consultante</span>
         </div>
       </div>
       <div class="step">
         <div class="step-num">05</div>
+        <div class="step-body">
+          <h3>Generación y exportación</h3>
+          <p>Se reciben el resumen para historial y el material de supervisión, listos en Word o PDF, guardados en la computadora y organizado en carpetas por consultante y número de sesión.</p>
+          <span class="step-chip">resumen.docx · supervision.docx</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
         <div class="step-body">
           <h3>Revisión y uso clínico</h3>
           <p>El profesional revisa los documentos generados, los ajusta si lo considera necesario y los usa para preparar la próxima sesión o para construir el historial del consultante.</p>
@@ -341,6 +349,19 @@
     </div>
     <div class="closing-box reveal" style="margin-top:24px;">
       <p>Psynote no reemplaza el criterio clínico, lo complementa.<br>El resumen y la supervisión son puntos de partida, no conclusiones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO DEMO -->
+<section id="video">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Video demo</div>
+      <h2>Verlo funcionar toma menos<br>que leer sobre esto.</h2>
+    </div>
+    <div class="reveal" style="border:1px solid var(--border);border-radius:14px;background:var(--surface);aspect-ratio:16/9;max-width:820px;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-family:var(--mono);font-size:13px;">
+      Video demo — próximamente
     </div>
   </div>
 </section>
@@ -368,6 +389,18 @@
           <div class="faq-item" data-faq>
             <button class="faq-q">¿El audio se guarda en algún servidor? <span class="plus">+</span></button>
             <div class="faq-a">No. El audio se procesa localmente y se borra automáticamente al terminar de generar los documentos. No se sube a ningún servidor.</div>
+          </div>
+          <div class="faq-item" data-faq>
+            <button class="faq-q">¿Guardan el audio? <span class="plus">+</span></button>
+            <div class="faq-a">No. Se borra automáticamente al terminar con éxito. Si una sesión falla, queda temporalmente en la computadora hasta reintentar — nunca sube a ningún lado.</div>
+          </div>
+          <div class="faq-item" data-faq>
+            <button class="faq-q">¿Guardan la transcripción? <span class="plus">+</span></button>
+            <div class="faq-a">No. Vive solo en memoria durante el procesamiento y nunca se escribe a disco. Lo único que queda guardado son los documentos finales.</div>
+          </div>
+          <div class="faq-item" data-faq>
+            <button class="faq-q">¿Quién puede leer mi sesión? <span class="plus">+</span></button>
+            <div class="faq-a">Nadie más que vos. Todo el procesamiento sensible ocurre en tu computadora.</div>
           </div>
           <div class="faq-item" data-faq>
             <button class="faq-q">¿Qué significa "anonimizado"? <span class="plus">+</span></button>
@@ -415,8 +448,9 @@
       <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Breve estratégica</h4><p>Sistémica-estratégica</p></div>
       <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Gestalt</h4><p>Ciclo de experiencia</p></div>
       <div class="enfoque-card"><span class="tag-mini">Pareja</span><h4>Narrativa de pareja</h4><p>White & Epston relacional</p></div>
-      <div class="enfoque-card" style="opacity:.5"><span class="tag-mini">Próximamente</span><h4>TCC de pareja</h4><p>En desarrollo</p></div>
+      <div class="enfoque-card" style="border-style:dashed;"><span class="tag-mini">Personalizado</span><h4>Creá tu propia plantilla</h4><p>Con tus propios criterios de resumen y supervisión</p></div>
     </div>
+    <p style="margin-top:18px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--red-text);opacity:.7;">Próximamente más enfoques</p>
   </div>
 </section>
 
@@ -431,7 +465,7 @@
     <div class="pricing-grid reveal">
       <div class="price-card">
         <div class="price-plan">Mensual</div>
-        <div class="price-amount">$19<span>/mes</span></div>
+        <div class="price-amount">$19.99<span>/mes</span></div>
         <ul class="price-features">
           <li>Transcripción y anonimización ilimitadas</li>
           <li>7 enfoques clínicos</li>
@@ -443,7 +477,7 @@
       <div class="price-card featured">
         <span class="price-badge">2 MESES GRATIS</span>
         <div class="price-plan">Anual</div>
-        <div class="price-amount">$149<span>/año</span></div>
+        <div class="price-amount">$149.99<span>/año</span></div>
         <ul class="price-features">
           <li>Transcripción y anonimización ilimitadas</li>
           <li>7 enfoques clínicos</li>

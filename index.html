@@ -225,7 +225,7 @@
   <div class="wrap">
     <span class="eyebrow reveal in"><span class="dot"></span> Asistente clínico para psicólogos/as en consultorio privado</span>
     <h1 class="reveal in">Tus sesiones, en tu computadora.<br>Nunca en la <em>nube</em>.</h1>
-    <p class="hero-sub reveal in">Psynote es un generador de documentos clínicos que graba, transcribe, anonimiza y luego genera automáticamente un resumen clínico y material de supervisión — todo procesado localmente, con total confidencialidad.</p>
+    <p class="hero-sub reveal in">Psynote es un generador de documentos clínicos que graba, transcribe, anonimiza y luego genera automáticamente el resumen clínico y el material de supervisión — todo procesado localmente, con total confidencialidad.</p>
     <div class="note-box blue reveal in">El audio de tus pacientes nunca sale de tu computadora. Diseñado considerando criterios de confidencialidad y secreto profesional.</div>
     <div class="hero-cta reveal in">
       <a href="#precios" class="btn-primary">Probar 7 días gratis →</a>
@@ -327,7 +327,7 @@
           <h2>Lo que se procesa local.<br>Lo que no.</h2>
           <p class="privacy-claim">
             Psynote fue diseñado en torno a un principio: el deber de confidencialidad y el
-            secreto profesional que guían la práctica clínica. <strong>El audio se graba, se transcribe y se
+            secreto profesional que guían la práctica clínica. <strong>El audio se transcribe y se
             anonimiza enteramente en la computadora</strong> — nombres, lugares, emails y otros datos
             identificables se convierten en etiquetas neutras antes de que cualquier texto salga
             de la máquina. Solo ese texto ya anonimizado se procesa para redactar el resumen:
@@ -610,11 +610,16 @@
       <h2>¿Tienes alguna pregunta?</h2>
       <p class="section-sub">Escribe acá directamente, te responderemos pronto.</p>
     </div>
-    <form class="reveal" onsubmit="return false;" style="max-width:520px;display:flex;flex-direction:column;gap:14px;">
-      <input type="text" placeholder="Nombre" style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
-      <input type="email" placeholder="Email" style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
-      <textarea placeholder="Mensaje" rows="4" style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;resize:vertical;"></textarea>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;">Enviar mensaje →</button>
+    <form id="form-contacto" class="reveal" action="https://formspree.io/f/xlgqoegr" method="POST" style="max-width:520px;display:flex;flex-direction:column;gap:14px;">
+      <input type="text" name="name" placeholder="Nombre" data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
+      <input type="email" name="email" placeholder="Email" required data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
+      <span data-fs-error="email" style="color:var(--red);font-size:12.5px;font-family:var(--sans);"></span>
+      <textarea name="message" placeholder="Mensaje (contanos tu consulta, o pedinos que te avisemos cuando lancemos)" rows="4" required data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;resize:vertical;"></textarea>
+      <span data-fs-error="message" style="color:var(--red);font-size:12.5px;font-family:var(--sans);"></span>
+      <button type="submit" data-fs-submit-btn class="btn-primary" style="align-self:flex-start;">Enviar mensaje →</button>
+      <div data-fs-success style="display:none;color:var(--accent-text);font-family:var(--sans);font-size:14px;background:var(--accent-light);border:1px solid rgba(74,108,247,.25);border-radius:8px;padding:12px 16px;">Gracias por escribirnos. Te responderemos pronto.</div>
+      <div data-fs-error style="display:none;color:var(--red);font-family:var(--sans);font-size:14px;"></div>
+      <p style="color:var(--muted2);font-family:var(--sans);font-size:12px;">Tu información se usa únicamente para responderte.</p>
     </form>
   </div>
 </section>
@@ -648,6 +653,10 @@
       if(!wasOpen) item.classList.add('open');
     });
   });
+
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#form-contacto', formId: 'xlgqoegr' });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

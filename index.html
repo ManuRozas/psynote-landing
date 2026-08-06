@@ -156,11 +156,25 @@
   .enfoques-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
   @media(max-width:900px){.enfoques-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:520px){.enfoques-grid{grid-template-columns:1fr;}}
-  .enfoque-card{border:1.5px solid rgba(74,108,247,.35);border-radius:10px;padding:18px;transition:border-color .15s,background .15s;cursor:pointer;}
-  .enfoque-card:hover{border-color:var(--accent);background:var(--accent-light);}
+  .enfoque-card{border:1.5px solid rgba(74,108,247,.35);border-radius:10px;padding:18px;transition:border-color .15s,background .15s;}
+  .enfoque-card.clickable{cursor:pointer;}
+  .enfoque-card.clickable:hover{border-color:var(--accent);background:var(--accent-light);}
   .enfoque-card .tag-mini{font-family:var(--mono);font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:block;}
   .enfoque-card h4{font-size:14.5px;font-weight:600;margin-bottom:5px;}
   .enfoque-card p{font-size:12.5px;color:var(--muted);}
+  .enfoque-ver{display:block;margin-top:10px;font-family:var(--mono);font-size:10.5px;color:var(--accent-text);}
+
+  /* MODAL EJEMPLOS */
+  .ejemplo-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:20px;}
+  .ejemplo-overlay.open{display:flex;}
+  .ejemplo-modal{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:36px;max-width:400px;width:100%;position:relative;}
+  .ejemplo-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;font-family:var(--sans);}
+  .ejemplo-close:hover{color:var(--text);}
+  .ejemplo-modal h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text);margin:6px 0 10px;}
+  .ejemplo-modal-sub{font-size:13.5px;color:var(--muted);margin-bottom:24px;line-height:1.6;}
+  .ejemplo-actions{display:flex;flex-direction:column;gap:10px;}
+  .ejemplo-btn-secondary{display:block;text-align:center;padding:11px;border-radius:8px;font-weight:600;font-size:13.5px;border:1px solid var(--border2);color:var(--text);background:none;font-family:var(--sans);}
+  .ejemplo-btn-secondary:hover{border-color:var(--muted);}
 
   /* PRICING */
   .trial-banner{text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--green-text);background:var(--green-light);border:1px solid rgba(42,122,74,.35);padding:10px;border-radius:8px;margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto;}
@@ -515,18 +529,32 @@
       <p class="section-sub">Cada enfoque tiene su propia estructura de resumen y de supervisión — pensada para esa forma de trabajar.</p>
     </div>
     <div class="enfoques-grid reveal">
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Terapia narrativa</h4><p>White & Epston</p></div>
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>TCC</h4><p>Beck</p></div>
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Psicoanálisis lacaniano</h4><p>Supervisión = "control"</p></div>
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Psicodinámico</h4><p>PDM-2 / OPD / apego</p></div>
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Breve estratégica</h4><p>Sistémica-estratégica</p></div>
-      <div class="enfoque-card"><span class="tag-mini">Individual</span><h4>Gestalt</h4><p>Ciclo de experiencia</p></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('narrativa')"><span class="tag-mini">Individual</span><h4>Terapia narrativa</h4><p>White & Epston</p><span class="enfoque-ver">Ver ejemplo →</span></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('cognitivo-conductual')"><span class="tag-mini">Individual</span><h4>Cognitivo conductual</h4><p>Beck</p><span class="enfoque-ver">Ver ejemplo →</span></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('lacaniano')"><span class="tag-mini">Individual</span><h4>Psicoanálisis lacaniano</h4><p>Supervisión = "control"</p><span class="enfoque-ver">Ver ejemplo →</span></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('psicodinamico')"><span class="tag-mini">Individual</span><h4>Psicodinámico</h4><p>PDM-2 / OPD / apego</p><span class="enfoque-ver">Ver ejemplo →</span></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('breve-estrategica')"><span class="tag-mini">Individual</span><h4>Terapia Sistémica</h4><p>Breve - estratégica</p><span class="enfoque-ver">Ver ejemplo →</span></div>
+      <div class="enfoque-card clickable" onclick="abrirEjemplo('gestalt')"><span class="tag-mini">Individual</span><h4>Gestalt</h4><p>Ciclo de experiencia</p><span class="enfoque-ver">Ver ejemplo →</span></div>
       <div class="enfoque-card"><span class="tag-mini">Pareja</span><h4>Narrativa de pareja</h4><p>White & Epston relacional</p></div>
       <div class="enfoque-card" style="border-style:dashed;"><span class="tag-mini">Personalizado</span><h4>Creá tu propia plantilla</h4><p>Con tus propios criterios de resumen y supervisión</p></div>
     </div>
     <p style="margin-top:18px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--red-text);opacity:.7;">Próximamente más enfoques</p>
   </div>
 </section>
+
+<!-- MODAL EJEMPLOS -->
+<div class="ejemplo-overlay" id="ejemplo-overlay" onclick="if(event.target===this) cerrarEjemplo()">
+  <div class="ejemplo-modal">
+    <button class="ejemplo-close" onclick="cerrarEjemplo()">✕</button>
+    <div class="section-eyebrow" style="margin-bottom:10px;">Enfoque</div>
+    <h3 id="ejemplo-titulo">Enfoque</h3>
+    <p class="ejemplo-modal-sub">Documentos de ejemplo generados por Psynote, en sesión de prueba con datos ficticios.</p>
+    <div class="ejemplo-actions">
+      <a id="ejemplo-link-resumen" href="#" target="_blank" class="btn-primary" style="justify-content:center;">Ver resumen (PDF)</a>
+      <a id="ejemplo-link-supervision" href="#" target="_blank" class="ejemplo-btn-secondary">Ver supervisión (PDF)</a>
+    </div>
+  </div>
+</div>
 
 <!-- PRECIOS -->
 <section id="precios">
@@ -614,7 +642,7 @@
       <input type="text" name="name" placeholder="Nombre" data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
       <input type="email" name="email" placeholder="Email" required data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;">
       <span data-fs-error="email" style="color:var(--red);font-size:12.5px;font-family:var(--sans);"></span>
-      <textarea name="message" placeholder="Mensaje (contanos tu consulta, o pedinos que te avisemos cuando lancemos)" rows="4" required data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;resize:vertical;"></textarea>
+      <textarea name="message" placeholder="Escríbenos tu consulta, te responderemos pronto" rows="4" required data-fs-field style="background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;resize:vertical;"></textarea>
       <span data-fs-error="message" style="color:var(--red);font-size:12.5px;font-family:var(--sans);"></span>
       <button type="submit" data-fs-submit-btn class="btn-primary" style="align-self:flex-start;">Enviar mensaje →</button>
       <div data-fs-success style="display:none;color:var(--accent-text);font-family:var(--sans);font-size:14px;background:var(--accent-light);border:1px solid rgba(74,108,247,.25);border-radius:8px;padding:12px 16px;">Gracias por escribirnos. Te responderemos pronto.</div>
@@ -656,6 +684,28 @@
 
   window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { formElement: '#form-contacto', formId: 'xlgqoegr' });
+
+  const nombresEjemplos = {
+    'narrativa': 'Terapia narrativa',
+    'cognitivo-conductual': 'Cognitivo conductual',
+    'lacaniano': 'Psicoanálisis lacaniano',
+    'psicodinamico': 'Psicodinámico',
+    'breve-estrategica': 'Breve estratégica',
+    'gestalt': 'Gestalt'
+  };
+
+  function abrirEjemplo(slug) {
+    const nombre = nombresEjemplos[slug];
+    if (!nombre) return;
+    document.getElementById('ejemplo-titulo').textContent = nombre;
+    document.getElementById('ejemplo-link-resumen').href = `ejemplos/${slug}-resumen.pdf`;
+    document.getElementById('ejemplo-link-supervision').href = `ejemplos/${slug}-supervision.pdf`;
+    document.getElementById('ejemplo-overlay').classList.add('open');
+  }
+
+  function cerrarEjemplo() {
+    document.getElementById('ejemplo-overlay').classList.remove('open');
+  }
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
